@@ -1,4 +1,4 @@
-//{ calculate } import './calculator';
+{ calculate } import './calculator';
 
 // TODO: Faire la manipulation du DOM dans ce fichier
 
@@ -23,64 +23,64 @@ let operatorSign = '';
 let display = '';
 
 function btnValue(event) {
-    inputElement.value = event.target.innerText;
+  inputElement.value = event.target.innerText;
 
-    switch (event.target.innerText) {
-        case "1":
-            display += "1";
-            break;
-        case '2':
-            display += '2';
-            break;
-        case '3':
-            display += '3';
-            break;
-        case '4':
-            display += '4';
-            break;
-        case '5':
-            display += '5';
-            break;
-        case '6':
-            display += '6';
-            break;
-        case '7':
-            display += '7';
-            break;
-        case '8':
-            display += '8';
-            break;
-        case '9':
-            display += '9';
-            break;
-        case '0':
-            if (display === '') {
-                display += '0';
-            }
-            else if (display > 0 || display.includes('.')) {
-                display += '0';
-            }
+  switch (event.target.innerText) {
+    case "1":
+      display += "1";
+      break;
+    case '2':
+      display += '2';
+      break;
+    case '3':
+      display += '3';
+      break;
+    case '4':
+      display += '4';
+      break;
+    case '5':
+      display += '5';
+      break;
+    case '6':
+      display += '6';
+      break;
+    case '7':
+      display += '7';
+      break;
+    case '8':
+      display += '8';
+      break;
+    case '9':
+      display += '9';
+      break;
+    case '0':
+      if (display === '') {
+        display += '0';
+      }
+      else if (display > 0 || display.includes('.')) {
+        display += '0';
+      }
 
-            break;
+      break;
 
-        case '.':
-            if (display.includes('.') || display === '') {
+    case '.':
+      if (display.includes('.') || display === '') {
 
-            }
-            else {
-                display += '.'
-            }
-            break;
+      }
+      else {
+        display += '.'
+      }
+      break;
 
-    }
+  }
 
-    inputElement.value = display;
+  inputElement.value = display;
 
 }
 // recuperer la valeur de la touche
 
 numpadButtons.forEach((number) => {
-    number.addEventListener('click', btnValue);
+  number.addEventListener('click', btnValue);
 
 });
 
@@ -88,7 +88,7 @@ numpadButtons.forEach((number) => {
 // function reset
 
 function reset() {
-    location.reload();
+  location.reload();
 }
 
 resetButton.addEventListener('click', reset);
@@ -96,23 +96,23 @@ resetButton.addEventListener('click', reset);
 // function clear
 
 function clear() {
-    inputElement.value = '';
-    display = '';
+  inputElement.value = '';
+  display = '';
 }
 clearButton.addEventListener('click', clear);
 
 // function pour addition
 
 function addition(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (display) {
-        operatorSign = '+';
-        calculElement.innerText += inputElement.value + ' +';
-        clear();
-    } else {
-        clear();
-    }
+  if (display) {
+    operatorSign = '+';
+    calculElement.innerText += inputElement.value + ' +';
+    clear();
+  } else {
+    clear();
+  }
 }
 
 plusButton.addEventListener('click', addition);
@@ -121,15 +121,15 @@ plusButton.addEventListener('click', addition);
 // function pour soustraction
 
 function soustraction(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (display) {
-        operatorSign = '-';
-        calculElement.innerText += inputElement.value + ' -';
-        clear();
-    } else {
-        clear();
-    }
+  if (display) {
+    operatorSign = '-';
+    calculElement.innerText += inputElement.value + ' -';
+    clear();
+  } else {
+    clear();
+  }
 }
 
 minusButton.addEventListener('click', soustraction);
@@ -138,15 +138,15 @@ minusButton.addEventListener('click', soustraction);
 // function pour division
 
 function division(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (display) {
-        operatorSign = '/';
-        calculElement.innerText += inputElement.value + ' /';
-        clear();
-    } else {
-        clear();
-    }
+  if (display) {
+    operatorSign = '/';
+    calculElement.innerText += inputElement.value + ' /';
+    clear();
+  } else {
+    clear();
+  }
 }
 
 divideButton.addEventListener('click', division);
@@ -155,15 +155,15 @@ divideButton.addEventListener('click', division);
 // function pour multiplication
 
 function multiplication(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (display) {
-        operatorSign = '*';
-        calculElement.innerText += inputElement.value + ' *';
-        clear();
-    } else {
-        clear();
-    }
+  if (display) {
+    operatorSign = '*';
+    calculElement.innerText += inputElement.value + ' *';
+    clear();
+  } else {
+    clear();
+  }
 }
 
 timesButton.addEventListener('click', multiplication);
@@ -171,14 +171,14 @@ timesButton.addEventListener('click', multiplication);
 // function pour plusoumoins
 
 function plusoumoins(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-            const currentNumber = parseFloat(inputElement.value);
-            inputElement.value = - currentNumber;
-          return inputElement.value
-        
+  const currentNumber = parseFloat(inputElement.value);
+  inputElement.value = - currentNumber;
+  return inputElement.value
 
-    
+
+
 }
 
 plusOuMoinsButton.addEventListener('click', plusoumoins);
@@ -186,9 +186,9 @@ plusOuMoinsButton.addEventListener('click', plusoumoins);
 // function pourcentage
 
 function pourcentage(event) {
-    event.preventDefault();
-    display.innerText = inputElement.value + '%';
-    inputElement.value = parseInt(inputElement.value) / 100;
+  event.preventDefault();
+  display.innerText = inputElement.value + '%';
+  inputElement.value = parseInt(inputElement.value) / 100;
 }
 
 percentageButton.addEventListener('click', pourcentage);
@@ -197,16 +197,16 @@ percentageButton.addEventListener('click', pourcentage);
 // function egal
 
 function egal(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (calculElement.innerText.includes('=')) {
+  if (calculElement.innerText.includes('=')) {
 
-    } else {
-        calculElement.innerText += inputElement.value;
+  } else {
+    calculElement.innerText += inputElement.value;
 
-        inputElement.value = eval(calculElement.innerText);
-        calculElement = `${calculElement.innerText}=`;
-    }
+    inputElement.value = eval(calculElement.innerText);
+    calculElement = `${calculElement.innerText}=`;
+  }
 }
 
 equalsButton.addEventListener('click', egal);
